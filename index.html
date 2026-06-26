@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HERizon Health Toolkit</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Alex+Brush&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --cream: #f5f2ea;
+            --beige: #d8d4ae;
+            --olive: #c5d07d;
+            --pink: #ffacb8;
+            --lavender: #d899d0;
+            --text-dark: #393737;
+            --text-warm: #583d32;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--pink), var(--lavender));
+            color: white;
+            padding: 24px 16px 18px;
+            text-align: center;
+        }
+
+        .brand-title {
+            font-family: 'Lora', serif;
+            font-size: 30px;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        .brand-tagline {
+            font-family: 'Alex Brush', cursive;
+            font-size: 20px;
+            margin-top: 4px;
+        }
+
+        .hero-subtitle {
+            margin-top: 10px;
+            font-size: 15px;
+        }
+
+        main {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 22px 16px 32px;
+        }
+
+        section {
+            margin-bottom: 26px;
+        }
+
+        h2 {
+            font-family: 'Lora', serif;
+            font-size: 22px;
+            color: var(--text-warm);
+            margin-bottom: 8px;
+        }
+
+        p {
+            margin: 4px 0 10px;
+        }
+
+        .pill {
+            display: inline-block;
+            background: var(--beige);
+            color: var(--text-warm);
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            margin-right: 6px;
+        }
+
+        .highlight-box {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 14px 14px 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+            gap: 16px;
+        }
+
+        @media (max-width: 720px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .list-simple {
+            padding-left: 18px;
+            margin: 6px 0 4px;
+        }
+
+        .list-simple li {
+            margin-bottom: 4px;
+        }
+
+        /* Toolkit cards */
+
+        .toolkit-section-title {
+            margin-top: 4px;
+            margin-bottom: 10px;
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 14px;
+        }
+
+        @media (min-width: 640px) {
+            .tool-grid {
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            }
+        }
+
+        .tool {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 14px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: 0.22s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .tool:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+        }
+
+        .tool img {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+        }
+
+        .tool-title {
+            font-weight: 600;
+            color: var(--text-warm);
+            margin-bottom: 4px;
+        }
+
+        .tool-description {
+            font-size: 14px;
+            color: var(--text-dark);
+            margin-top: 2px;
+            display: none;
+        }
+
+        .tool.open .tool-description {
+            display: block;
+        }
+
+        /* Get involved / footer */
+
+        .get-involved-box {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 14px 14px 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+        }
+
+        .contact-line {
+            font-size: 14px;
+            margin-top: 6px;
+        }
+
+        footer {
+            border-top: 1px solid rgba(0,0,0,0.06);
+            padding: 14px 16px 18px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-warm);
+            background: var(--beige);
+        }
+
+        .footer-tagline {
+            font-family: 'Alex Brush', cursive;
+            font-size: 18px;
+            display: block;
+            margin-bottom: 4px;
+        }
+    </style>
+
+    <script>
+        function toggleTool(element) {
+            element.classList.toggle("open");
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <h1 class="brand-title">HERizon Health</h1>
+    <div class="brand-tagline">Advocating · Empowering · Inspiring</div>
+    <div class="hero-subtitle">
+        Breaking barriers in women’s healthcare with simple, accessible tools anyone can use.
+    </div>
+</header>
+
+<main>
+
+    <!-- WHO WE ARE + WHY IT MATTERS -->
+    <section class="two-column">
+        <div class="highlight-box">
+            <h2>Who we are</h2>
+            <p>
+                HERizon Health is a student‑led organization advancing women’s health through education,
+                advocacy, community outreach, and health equity.
+            </p>
+            <p>
+                We focus on making healthcare easier to navigate for women and girls—especially those facing
+                barriers like cost, language, bias, or lack of information.
+            </p>
+            <div style="margin-top: 8px;">
+                <span class="pill">Education</span>
+                <span class="pill">Advocacy</span>
+                <span class="pill">Community Outreach</span>
+                <span class="pill">Health Equity</span>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h2>Why this toolkit matters</h2>
+            <p>
+                Healthcare access isn’t equal for everyone. Social and economic factors, bias, and under‑representation
+                in research all affect how women are treated and heard.
+            </p>
+            <p>
+                This toolkit gives you clear, simple steps to:
+            </p>
+            <ul class="list-simple">
+                <li>Find care, even with limited money or insurance</li>
+                <li>Prepare for appointments so your symptoms are taken seriously</li>
+                <li>Stay calmer and more confident in stressful health situations</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- TOOLKIT -->
+    <section>
+        <h2>HERizon Toolkit</h2>
+        <p class="toolkit-section-title">
+            Tap any tool to see how it can support you. Everything is designed to be simple, practical, and easy to use.
+        </p>
+
+        <div class="tool-grid">
+
+            <!-- HOTLINE -->
+            <div class="tool" onclick="toggleTool(this)">
+                <img src="https://raw.githubusercontent.com/clairerdeville/HERizon-toolkit/refs/heads/main/landline-phone-3d-icon-illustration-png.webp" alt="Phone icon for hotline">
+                <div>
+                    <div class="tool-title">Hotline</div>
+                    <div class="tool-description">
+                        Call a trusted hotline when you feel unsafe, overwhelmed, or need immediate support.
+                        You deserve to feel protected and heard, and talking to someone can help you decide your next step.
+                    </div>
+                </div>
+            </div>
+
+            <!-- CLINIC -->
+            <div class="tool" onclick="toggleTool(this)">
+                <img src="https://raw.githubusercontent.com/clairerdeville/HERizon-toolkit/refs/heads/main/hospital-clinic-building-3d-icon-illustration-png.webp" alt="Clinic building icon">
+                <div>
+                    <div class="tool-title">Low‑Cost Clinic</div>
+                    <div class="tool-description">
+                        Look for community clinics that offer affordable or free care. They can help with exams,
+                        birth control, STI testing, pregnancy care, and more—even if you don’t have insurance.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SYMPTOM TRACKER -->
+            <div class="tool" onclick="toggleTool(this)">
+                <img src="https://raw.githubusercontent.com/clairerdeville/HERizon-toolkit/refs/heads/main/high-resolution-3d-clipboard-with-a-verification-checkmark-free-png.webp" alt="Clipboard icon for symptom tracking">
+                <div>
+                    <div class="tool-title">Symptom Tracker</div>
+                    <div class="tool-description">
+                        Write down what you’re feeling, when it started, and what makes it better or worse.
+                        Bringing notes to an appointment helps providers understand your experience and take it seriously.
+                    </div>
+                </div>
+            </div>
+
+            <!-- TRANSLATION -->
+            <div class="tool" onclick="toggleTool(this)">
+                <img src="https://raw.githubusercontent.com/clairerdeville/HERizon-toolkit/refs/heads/main/3d-global-opinion-illustration-png.webp" alt="Globe and speech bubbles icon for translation">
+                <div>
+                    <div class="tool-title">Translation Help</div>
+                    <div class="tool-description">
+                        Use translation apps or tools to understand medical forms, instructions, or conversations.
+                        Clear language is a right, not a privilege—this can help you feel more confident and informed.
