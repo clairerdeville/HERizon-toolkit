@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HERizon Health – Tap Your Toolkit</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Alex+Brush&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --offwhite: #f5f2ea;
+      --beige: #d8d4ae;
+      --green: #c5d07d;
+      --pink: #ffacb8;
+      --lavender: #d899d0;
+      --darkgray: #393737;
+      --brown: #583d32;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--offwhite);
+      font-family: "TT Chocolates", Arial, sans-serif;
+      color: var(--darkgray);
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    header img {
+      width: 140px;
+      margin-bottom: 10px;
+    }
+
+    header h1 {
+      font-family: "Lora", serif;
+      font-size: 32px;
+      color: var(--brown);
+      margin: 0;
+    }
+
+    .subheader {
+      text-align: center;
+      font-size: 16px;
+      margin-top: 5px;
+      color: var(--brown);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 14px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+
+    .card img {
+      width: 120px;
+      height: auto;
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-family: "Lora", serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+
+    .card-text {
+      font-size: 15px;
+      line-height: 1.4;
+      color
