@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>HERizon Health – Tap Your Toolkit</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Alex+Brush&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --offwhite:#f5f2ea;
+    --beige:#d8d4ae;
+    --green:#c5d07d;
+    --pink:#ffacb8;
+    --lavender:#d899d0;
+    --dark:#393737;
+    --brown:#583d32;
+  }
+
+  html,body{height:100%;margin:0;background:var(--offwhite);color:var(--dark);font-family:"TT Chocolates",system-ui,-apple-system,Segoe UI,Roboto,Arial;}
+
+  header{display:flex;flex-direction:column;align-items:center;gap:8px;padding:28px 16px 10px;}
+  header img.logo{width:140px;height:auto;display:block;}
+  header h1{font-family:"Lora",serif;color:var(--brown);margin:0;font-size:28px;letter-spacing:0.2px;}
+  .sub{color:var(--brown);font-size:14px;text-align:center;margin-bottom:6px;}
+
+  .container{max-width:1000px;margin:28px auto;padding:0 18px;}
+
+  .tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;}
+
+  .card{
+    background:#fff;border-radius:14px;padding:18px;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,0.06);
+    transition:transform .18s ease,box-shadow .18s ease;cursor:pointer;
+  }
+  .card:hover{transform:translateY(-6px);box-shadow:0 10px 26px rgba(0,0,0,0.10);}
+
+  .card img{width:120px;height:auto;margin-bottom:12px;display:block;margin-left:auto;margin-right:auto;}
+  .card-title{font-family:"Lora",serif;color:var(--brown);font-size:18px;margin-bottom:6px;}
+  .card-text{font-size:14px;color:#444;line-height:1.4;margin-bottom:6px;}
+
+  .detail{display:none;margin-top:10px;padding:12px;border-radius:10px;background:linear-gradient(180deg,var(--pink),#ffeef2);color:var(--brown);text-align:left;font-size:14px;}
+  .detail a{color:var(--brown);font-weight:600;text-decoration:underline;}
+
+  /* responsive */
+  @media (max-width:520px){
+    header h1{font-size:22px;}
+    .card img{width:100px;}
+  }
+</style>
+
+<script>
+  // Toggle detail panel
+  function toggleDetail(id){
+    const el = document.getElementById(id);
+    if(!el) return;
+    el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+  }
+
+  // On load: ensure images exist; if logo missing, hide broken image
+  window.addEventListener('load', () => {
+    document.querySelectorAll('img').forEach(img=>{
+      img.onerror = () => { img.style.display = 'none'; };
+    });
+  });
+</script>
+</head>
+<body>
+
+<header>
+  <!-- logo: will show if herizon-logo.png exists; otherwise fallback to text -->
+  <img class="logo" src="herizon-logo.png" alt="HERizon Health logo" onerror="this.style.display='none'">
+  <h1>HERizon Health</h1>
+  <div class="sub">Tap a card to reveal more detailed support and resources.</div>
+</header>
+
+<main class="container">
+  <div class="tool-grid">
+
+    <!-- Emergency Hotline -->
+    <div class="card" onclick="toggleDetail('d-hotline')">
+      <img src="landline-phone-3d-icon-illustration-png.webp?v=2" alt="Hotline">
+      <div class="card-title">Emergency Hotline</div>
+      <div class="card-text">Call or text 988 for immediate mental health support.</div>
+      <div id="d-hotline" class="detail">
+        <p><strong>988 Suicide & Crisis Lifeline</strong> — Call or text <strong>988</strong> 24/7.</p>
+        <p>Chat: <a href="https://988lifeline.org/chat" target="_blank" rel="noopener">988lifeline.org/chat</a></p>
+        <p>Crisis Text Line: text <strong>HOME</strong> to <strong>741741</strong>.</p>
+      </div>
+    </div>
+
+    <!-- Symptom Tracker -->
+    <div class="card" onclick="toggleDetail('d-tracker')">
+      <img src="high-resolution-3d-clipboard-with-a-verification.webp?v=2" alt="Tracker">
+      <div class="card-title">Symptom Tracker</div>
+      <div class="card-text">Track symptoms to understand your health patterns.</div>
+      <div id="d-tracker" class="detail">
+        <p>Try logging: what it feels like, when it happens, and triggers or reliefs. Bring notes to appointments.</p>
+      </div>
+    </div>
+
+    <!-- Clinic Finder -->
+    <div class="card" onclick="toggleDetail('d-clinic')">
+      <img src="hospital-clinic-building-3d-icon-illustration-png.webp?v=2" alt="Clinic Finder">
+      <div class="card-title">Clinic Finder</div>
+      <div class="card-text">Find nearby clinics and low‑cost care options.</div>
+      <div id="d-clinic" class="detail">
+        <ul>
+          <li><a href="https://findahealthcenter.hrsa.gov" target="_blank" rel="noopener">HRSA Health Center Finder</a></li>
+          <li>County health departments</li>
+          <li>Federally Qualified Health Centers (FQHCs)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Translation Support -->
+    <div class="card" onclick="toggleDetail('d-translate')">
+      <img src="3d-global-opinion-illustration-png.webp?v=2" alt="Translation">
+      <div class="card-title">Translation Support</div>
+      <div class="card-text">Break language barriers during medical visits.</div>
+      <div id="d-translate" class="detail">
+        <ul>
+          <li>Ask for an interpreter for appointments.</li>
+          <li>Use trusted translation apps for short phrases.</li>
+          <li>Write down questions in your language before visits.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Grounding Exercise -->
+    <div class="card" onclick="toggleDetail('d-ground')">
+      <img src="wonderful-creative-3d-render-of-person-medical.webp?v=2" alt="Grounding">
+      <div class="card-title">Grounding Exercise</div>
+      <div class="card-text">Calm your body and mind during stressful moments.</div>
+      <div id="d-ground" class="detail">
+        <p><strong>5‑4‑3‑2‑1 method:</strong> name 5 things you see, 4 you feel, 3 you hear, 2 you smell, 1 you taste.</p>
+      </div>
+    </div>
+
+    <!-- Trusted Adult -->
+    <div class="card" onclick="toggleDetail('d-trusted')">
+      <img src="two-supportive-figures-standing-side-by-side.webp?v=2" alt="Trusted Adult">
+      <div class="card-title">Trusted Adult</div>
+      <div class="card-text">Identify someone you can turn to for support.</div>
+      <div id="d-trusted" class="detail">
+        <ul>
+          <li>School counselor, teacher, or nurse</li>
+          <li>Parent, sibling, or relative</li>
+          <li>Mentor or community leader</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+</body>
